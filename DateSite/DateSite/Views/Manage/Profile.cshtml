@@ -1,4 +1,4 @@
-﻿
+﻿@model DateSite.Models.ProfileModel
 
 @{
     ViewBag.Title = "Profile";
@@ -20,7 +20,7 @@
             Hide your profile from search?
             <INPUT TYPE="radio" NAME="hide" VALUE="y">Yes
             <INPUT TYPE="radio" NAME="hide" VALUE="n" checked="checked">No
-            <textarea class="aboutbox" name="about" form="usrform">hej </textarea>
+            <textarea class="aboutbox" name="about" form="usrform">@ViewBag.KORV </textarea>
             </br>
             <input type="submit">
         </form>
