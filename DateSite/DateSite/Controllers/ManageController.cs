@@ -26,7 +26,9 @@ namespace DateSite.Controllers
 
         public new ActionResult Profile()
         {
-            var x = _manageRepository.getPAboutById(14);
+            var f = Session["UserID"];
+            var s = Convert.ToInt32(f);
+            var x = _manageRepository.getPAboutById(s);
             ViewBag.KORV = x;
             return View();
         }
