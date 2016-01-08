@@ -6,9 +6,19 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class ManageRepository
+    public class ManageRepository
     {
-        
+        public string getPAboutById(int id)
+        {
+            using (var context = new UserDBEntities())
+            {
+                var about = (from a in context.Profiles
+                            where (a.Id == id)
+                            select a.About).Single();
+                return about;
+            }
+        }
+
 
     }
 }

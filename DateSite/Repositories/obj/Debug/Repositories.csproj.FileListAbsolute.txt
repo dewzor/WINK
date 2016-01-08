@@ -46,3 +46,15 @@ F:\Programmering\WINK\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.
 F:\Programmering\WINK\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
 F:\Programmering\WINK\DateSite\Repositories\obj\Debug\Repositories.dll
 F:\Programmering\WINK\DateSite\Repositories\obj\Debug\Repositories.pdb
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\UserDB.mdf
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\UserDB_log.ldf
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\Repositories.dll.config
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\Repositories.dll
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\Repositories.pdb
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.dll
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.xml
+F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.dll
+F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.pdb
