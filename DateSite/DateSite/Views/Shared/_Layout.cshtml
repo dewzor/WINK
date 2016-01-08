@@ -31,7 +31,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Browse Profiles", "Browse", "BrowseProfiles")</li>
                     <li>@Html.ActionLink("Profile", "Profile", "Manage")</li>
-                </ul>View
+                </ul>
 
                 @if(Session["UserID"] == null){
                 @Html.Partial("_LoginPartial")
