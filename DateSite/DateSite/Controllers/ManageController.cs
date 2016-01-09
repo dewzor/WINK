@@ -11,6 +11,7 @@ namespace DateSite.Controllers
 {
     public class ManageController : Controller
     {
+        
         private ManageRepository _manageRepository;
 
         public ManageController()
@@ -26,11 +27,13 @@ namespace DateSite.Controllers
 
         public new ActionResult Profile()
         {
-            var f = Session["UserID"];
-            var s = Convert.ToInt32(f);
-            var x = _manageRepository.getPAboutById(s);
-            ViewBag.KORV = x;
-            return View();
+            ProfileModel profile = new ProfileModel();
+            var userid = Convert.ToInt32(Session["UserID"]);
+            profile.about = _manageRepository.getPAboutById(userid);
+            profile.hide = _manageRepository.getHide(userid);
+
+
+            return View(profile);
         }
     }
 }

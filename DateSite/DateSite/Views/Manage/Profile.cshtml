@@ -1,12 +1,13 @@
 ﻿@model DateSite.Models.ProfileModel
 
 @{
-    ViewBag.Title = "Profile";
+    ViewBag.Title = "My profile settings";
     Layout = "~/Views/Shared/_Layout.cshtml";
     @Styles.Render("~/Content/Profile.css");
+    var userid = Session["UserID"];
 }
 <div class="container">
-    <h2>Profile</h2>
+    <h2>My profile settings</h2>
     </br>
     </br>
     <div class="col-md-3">
@@ -16,11 +17,10 @@
     </div>
     <div class="col-md-8">
         <form id="usrform">
-            Email: <input type="text" name="usrname" value="Currentemail" /></br>
             Hide your profile from search?
-            <INPUT TYPE="radio" NAME="hide" VALUE="y">Yes
-            <INPUT TYPE="radio" NAME="hide" VALUE="n" checked="checked">No
-            <textarea class="aboutbox" name="about" form="usrform">@ViewBag.KORV </textarea>
+            <input type="radio" name="hide" value="y" @(!Model.hide ? "" : "checked=\"checked\"") />Yes
+            <input type="radio" name="hide" value="n" @(Model.hide ? "" : "checked=\"checked\"") />No
+            <textarea class="aboutbox" name="about" form="usrform">@Model.about </textarea>
             </br>
             <input type="submit">
         </form>
