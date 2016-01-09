@@ -27,6 +27,7 @@
     <NavigationProperty Name="Intrests" Relationship="Self.HAVINGINTREST" FromRole="Profiles" ToRole="Intrests" />
     <NavigationProperty Name="Profiles11" Relationship="Self.REQUESTEDFRIEND" FromRole="Profiles" ToRole="Profiles1" />
     <NavigationProperty Name="Profiles3" Relationship="Self.REQUESTEDFRIEND" FromRole="Profiles1" ToRole="Profiles" />
+    <Property Name="Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="WALLPOST">
     <Key>

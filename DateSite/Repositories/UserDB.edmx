@@ -4,9 +4,9 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="UserDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="UserDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\REPOSITORIES\USERDB.MDF.dbo.FRIENDSWITH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.FRIENDSWITH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="FRIENDSWITH">
           <Key>
             <PropertyRef Name="UID" />
@@ -16,7 +16,7 @@ warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\RE
           <Property Name="FID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\REPOSITORIES\USERDB.MDF.dbo.HAVINGINTREST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.HAVINGINTREST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="HAVINGINTREST">
           <Key>
             <PropertyRef Name="PID" />
@@ -43,9 +43,10 @@ warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\RE
           <Property Name="Gender" Type="nchar" MaxLength="6" />
           <Property Name="Age" Type="int" />
           <Property Name="About" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Pic" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\REPOSITORIES\USERDB.MDF.dbo.REQUESTEDFRIEND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.REQUESTEDFRIEND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="REQUESTEDFRIEND">
           <Key>
             <PropertyRef Name="UID" />
@@ -55,7 +56,7 @@ warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\RE
           <Property Name="FRID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\REPOSITORIES\USERDB.MDF.dbo.SECURITY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.SECURITY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SECURITY">
           <Key>
             <PropertyRef Name="PID" />
@@ -208,14 +209,12 @@ warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\RE
     FROM [dbo].[REQUESTEDFRIEND] AS [REQUESTEDFRIEND]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="SECURITY" EntityType="Self.SECURITY" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>
-              SELECT
-              [SECURITY].[PID] AS [PID],
-              [SECURITY].[USERNAME] AS [USERNAME],
-              [SECURITY].[PASSWORD] AS [PASSWORD],
-              [SECURITY].[VISIBILITY] AS [VISIBILITY]
-              FROM [dbo].[SECURITY] AS [SECURITY]
-            </DefiningQuery>
+            <DefiningQuery>SELECT 
+    [SECURITY].[PID] AS [PID], 
+    [SECURITY].[USERNAME] AS [USERNAME], 
+    [SECURITY].[PASSWORD] AS [PASSWORD], 
+    [SECURITY].[VISIBILITY] AS [VISIBILITY]
+    FROM [dbo].[SECURITY] AS [SECURITY]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__FRIENDSWITH__FID__3C69FB99" Association="Self.FK__FRIENDSWITH__FID__3C69FB99">
             <End Role="Profiles" EntitySet="Profiles" />
@@ -254,8 +253,7 @@ warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\RE
             <End Role="WALLPOST" EntitySet="WALLPOST" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UserDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -286,6 +284,7 @@ warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\RE
           <NavigationProperty Name="Intrests" Relationship="Self.HAVINGINTREST" FromRole="Profiles" ToRole="Intrests" />
           <NavigationProperty Name="Profiles11" Relationship="Self.REQUESTEDFRIEND" FromRole="Profiles" ToRole="Profiles1" />
           <NavigationProperty Name="Profiles3" Relationship="Self.REQUESTEDFRIEND" FromRole="Profiles1" ToRole="Profiles" />
+          <Property Name="Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="WALLPOST">
           <Key>
@@ -406,6 +405,7 @@ warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\REPOSITORY\NUSA\DATESITE\RE
           <EntitySetMapping Name="Profiles">
             <EntityTypeMapping TypeName="UserDBModel.Profiles">
               <MappingFragment StoreEntitySet="Profiles">
+                <ScalarProperty Name="Pic" ColumnName="Pic" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Firstname" ColumnName="Firstname" />
                 <ScalarProperty Name="Lastname" ColumnName="Lastname" />

@@ -34,6 +34,7 @@ namespace Repositories
         public string Gender { get; set; }
         public Nullable<int> Age { get; set; }
         public string About { get; set; }
+        public string Pic { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SECURITY> SECURITY { get; set; }

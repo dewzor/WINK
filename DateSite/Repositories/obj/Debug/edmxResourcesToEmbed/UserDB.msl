@@ -12,6 +12,7 @@
     <EntitySetMapping Name="Profiles">
       <EntityTypeMapping TypeName="UserDBModel.Profiles">
         <MappingFragment StoreEntitySet="Profiles">
+          <ScalarProperty Name="Pic" ColumnName="Pic" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Firstname" ColumnName="Firstname" />
           <ScalarProperty Name="Lastname" ColumnName="Lastname" />

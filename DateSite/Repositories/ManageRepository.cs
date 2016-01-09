@@ -45,5 +45,28 @@ namespace Repositories
             }
         }
 
+        public void setPic(int id, string filename)
+        {
+            using (var context = new UserDBEntities())
+            {
+                var user = (from a in context.Profiles
+                            where (a.Id == id)
+                            select a).SingleOrDefault();
+                user.Pic = filename;
+                context.SaveChanges();
+            }
+        }
+
+        public string getPic(int id)
+        {
+            using (var context = new UserDBEntities())
+            {
+                var user = (from a in context.Profiles
+                            where (a.Id == id)
+                            select a).SingleOrDefault();
+                return user.Pic;
+            }
+        }
+
     }
 }

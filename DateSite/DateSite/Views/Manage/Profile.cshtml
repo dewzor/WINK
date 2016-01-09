@@ -11,10 +11,10 @@
     </br>
     </br>
     <div class="col-md-3">
-        <img src="~/Content/Images/rowan.jpg" width="200" height="300" />
+        <img src="~/Content/ProfileImages/@(Model.pic)" width="200" height="300" />
 
         
-        @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "mutlipart/form-data" }))
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <table>
                 <tr>
