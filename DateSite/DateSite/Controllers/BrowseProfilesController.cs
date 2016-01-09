@@ -23,5 +23,14 @@ namespace DateSite.Controllers
             browseData.countries = reader.getCountries();
             return View(browseData);
         }
+
+        [HttpPost]
+        public ActionResult Browse(string searchtext)
+        {
+            BrowseModel browseData = new BrowseModel();
+            browseData.profiles = _usersRepository.findProfilesByName(searchtext);
+            browseData.countries = reader.getCountries();
+            return View(browseData);
+        }
     }
 }

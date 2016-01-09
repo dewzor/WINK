@@ -12,11 +12,15 @@ namespace Repositories
         /// <summary>
         ///  Hämtar en user med viss id
         /// </summary>
-        public Profiles findProfileByName(string name)
+        public List<Profiles> findProfilesByName(string name)
         {
             using (var context = new UserDBEntities())
             {
-                Profiles profile = context.Profiles.Find(name);
+               
+                context.Database.Connection.Open();
+                List<Profiles> profile = (from a in context.Profiles
+                                    where (a.Lastname.Contains(name) || a.Firstname.Contains(name))
+                                    select a).ToList();
                 return profile;
             }
         }

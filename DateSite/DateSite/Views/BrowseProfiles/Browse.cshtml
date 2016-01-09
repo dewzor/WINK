@@ -7,6 +7,22 @@
 
 }
 
+
+<head>
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#searchBtn").click(function () {
+                $('.profilebox').remove();
+                
+     
+            });
+
+        });
+    </script>
+</head>
+
 <div class="container">
     <h1>Browse Profiles</h1>
     
@@ -86,6 +102,20 @@
                 </ul>
             </div>
         </div>
+        <hr />
+        <div class="row search-row">
+            <div class="col-md-12">
+
+                @using (Html.BeginForm())
+                { 
+                    <p>Search a user</p>
+                    <input type="text" name="searchtext" />
+                    <input type="submit" value="Search" id="searchBtn" />
+                }
+
+            </div>
+        </div>
+
     </div>
 
 </div>
@@ -95,10 +125,10 @@
     <div class="col-md-2 sides"></div>
     <div class="col-md-8">
 
-        <div class="row">
+        <div class="row profile-row">
             @foreach (var i in Model.profiles)
             {
-                <div class="col-md-2 profile" style="background-image:url();">
+                <div class="col-md-2 profile profilebox" style="background-image:url();">
                     <p>@i.Firstname</p>
                     <p>@i.Lastname</p>
                     <p>@i.Gender</p>

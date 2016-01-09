@@ -58,3 +58,15 @@ F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.SqlSe
 F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
 F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.dll
 F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.pdb
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\UserDB.mdf
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\UserDB_log.ldf
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\Repositories.dll.config
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\Repositories.dll
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\Repositories.pdb
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.dll
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.xml
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.dll
+C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.pdb

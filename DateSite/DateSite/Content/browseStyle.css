@@ -59,3 +59,15 @@ h1{
 }
 
 
+.search-row{
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+input[type="button"]{
+    background-color: white;
+    border: none;
+    font-weight: bold;
+
+}
