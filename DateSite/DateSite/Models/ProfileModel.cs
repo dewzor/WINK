@@ -13,5 +13,12 @@ namespace DateSite.Models
         public string email { get; set; }
         public bool hide { get; set; }
         public string pic { get; set; }
+
+        
+
+    }
+    public class Picture
+    {
+        public HttpPostedFileBase File { get; set; }
     }
 }

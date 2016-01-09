@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Repositories;
 using DateSite.Functions;
 using DateSite.Models;
+using System.IO;
 
 namespace DateSite.Controllers
 {
@@ -34,6 +35,18 @@ namespace DateSite.Controllers
 
 
             return View(profile);
+        }
+
+        [HttpPost]
+        public new ActionResult Profile(Picture picture)
+        {
+            if (picture.File.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(picture.File.FileName);
+                var path = Path.Combine(Server.MapPath("~/Content/ProfileImages"), fileName);
+                picture.File.SaveAs(path);
+            }
+            return RedirectToAction("Profile");
         }
     }
 }
