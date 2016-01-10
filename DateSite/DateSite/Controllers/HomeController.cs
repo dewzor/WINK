@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DateSite.Models;
+using Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,13 @@ namespace DateSite.Controllers
 {
     public class HomeController : Controller
     {
+        UsersRepository _usersRepository = new UsersRepository();
+        BrowseModel data = new BrowseModel();
+
         public ActionResult Index()
         {
-            return View();
+            data.randomProfiles = _usersRepository.getRandomProfiles();
+            return View(data);
         }
 
         public ActionResult About()
@@ -23,12 +29,6 @@ namespace DateSite.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-        public ActionResult Profile()
-        {
-            ViewBag.Message = "Your profile page.";
 
             return View();
         }

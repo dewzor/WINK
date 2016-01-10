@@ -62,14 +62,9 @@ namespace Repositories
                 }
 
                 List<Profiles> filteredList = new List<Profiles>();
-                int c = 0;
-                while(c < 5)
-                {
-                    Random r = new Random();
-                    int val = r.Next(ids.Count);
-                        filteredList.Add(getUserByID(c));
-                        c++;              
-                }
+                Random rnd = new Random();
+                filteredList.OrderBy(x => rnd.Next()).Take(5);
+
                 return filteredList;
             }
         }

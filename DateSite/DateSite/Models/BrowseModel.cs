@@ -7,5 +7,6 @@ namespace DateSite.Models
     {
         public List<Profiles> profiles { get; set; }
         public List<string> countries { get; set; }
+        public List<Profiles> randomProfiles { get; set; }
     }
 }
