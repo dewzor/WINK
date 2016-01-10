@@ -63,11 +63,18 @@ namespace Repositories
 
                 List<Profiles> filteredList = new List<Profiles>();
                 Random random = new Random();
-
-                for(int i = 0; i < 5; i++)
+                List<int> ranNumbers = new List<int>();
+                int c = 0;
+                while (c < 5)
                 {
                     int ran = ids[random.Next(ids.Count)];
-                    filteredList.Add(getUserByID(ran));
+
+                    if (!ranNumbers.Contains(ran))
+                    {
+                        ranNumbers.Add(ran);
+                        filteredList.Add(getUserByID(ran));
+                        c++;
+                    }   
                 }
                 
 
