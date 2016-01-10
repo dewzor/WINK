@@ -31,7 +31,7 @@ namespace DateSite.Controllers
             ProfileModel profile = new ProfileModel();
             var userid = Convert.ToInt32(Session["UserID"]);
             profile.about = _manageRepository.getPAboutById(userid);
-            profile.hide = _manageRepository.getHide(userid);
+            profile.visible = _manageRepository.getHide(userid);
             profile.userid = userid;
             profile.pic = _manageRepository.getPic(userid);
 
@@ -39,20 +39,25 @@ namespace DateSite.Controllers
         }
 
         [HttpPost]
-        public new ActionResult Profile(ProfileModel picture)
+        public new ActionResult Profile(ProfileModel profile)
         {
-            if (picture.File.ContentLength > 0)
+            var userid = Convert.ToInt32(Session["UserID"]);
+            if (profile.File != null && profile.File.ContentLength > 0)
             {
-                var userid = Convert.ToInt32(Session["UserID"]);
-                var fileName = Path.GetFileName(picture.File.FileName);
+                var fileName = Path.GetFileName(profile.File.FileName);
                 var parts = fileName.Split('.');
                 fileName = userid + "." +parts[1];
                 var path = Path.Combine(Server.MapPath("~/Content/ProfileImages"), fileName);
-                picture.File.SaveAs(path);
+                profile.File.SaveAs(path);
                 _manageRepository.setPic(userid, fileName);
-
-
             }
+            var xa = profile.Aboutbox;
+            var xs = profile.Visibility;
+            _manageRepository.setPAboutById(userid, profile.Aboutbox);
+            _manageRepository.setHide(userid, profile.Visibility);
+            
+
+
             return RedirectToAction("Profile");
         }
     }

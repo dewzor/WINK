@@ -11,13 +11,12 @@ namespace DateSite.Models
     {
         public string about { get; set; }
         public string email { get; set; }
-        public bool hide { get; set; }
+        public bool visible { get; set; }
         public string pic { get; set; }
         public int userid { get; set; }
-
         public HttpPostedFileBase File { get; set; }
-
-
+        public string Aboutbox { get; set; }
+        public bool Visibility { get; set; }
 
     }
 }

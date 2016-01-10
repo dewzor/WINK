@@ -30,16 +30,16 @@ namespace Repositories
             }
         }
 
-        public void setHide(int id, int choice)
+        public void setHide(int id, bool choice)
         {
             using (var context = new UserDBEntities())
             {
                 var hide = (from a in context.SECURITY
                              where (a.PID == id)
                              select a).SingleOrDefault();
-                if (choice == 1)
+                if (choice == true)
                     hide.VISIBILITY = true;
-                if (choice == 0)
+                if (choice == false)
                     hide.VISIBILITY = false;
                 context.SaveChanges();
             }
@@ -68,5 +68,16 @@ namespace Repositories
             }
         }
 
+        public void setPAboutById(int id, string about)
+        {
+            using (var context = new UserDBEntities())
+            {
+                var user = (from a in context.Profiles
+                            where (a.Id == id)
+                            select a).SingleOrDefault();
+                user.About = about;
+                context.SaveChanges();
+            }
+        }
     }
 }

@@ -4,46 +4,29 @@
     ViewBag.Title = "My profile settings";
     Layout = "~/Views/Shared/_Layout.cshtml";
     @Styles.Render("~/Content/Profile.css");
-    var userid = Session["UserID"];
 }
 <div class="container content-wrapper">
     <h2>My profile settings</h2>
     </br>
     </br>
-    <div class="col-md-3">
-        <img src="~/Content/ProfileImages/@(Model.pic)" width="200" height="300" />
-
-        
-        @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm(null , null , FormMethod.Post, new { @id = "usrform", enctype = "multipart/form-data" }))
         {
-            <table>
-                <tr>
-                <td><input type="file" id="File" name="File" style="display: none;" /></td>
-                <td><input type="button" value="Upload new profile picture" class="uploadpic" /></td>
-                
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td><input type="submit" name="submit" value="Upload" /></td>
-                </tr>
-            </table>
+            <div class="col-md-3">
+                        <img src="~/Content/ProfileImages/@(Model.pic)" width="240" height="300" />
+                        <input type="file" id="File" name="File" style="display: none;" />
+                        <input type="button" value="Upload new profile picture" class="uploadpic" />
+            </div>
+            <div class="col-md-8">
+                <p>Hide profile from search?</p>
+                <input type="radio" name="Visibility" value="false" @(Model.visible ? "" : "checked=\"checked\"") />Yes
+                <input type="radio" name="Visibility" value="true" @(!Model.visible ? "" : "checked=\"checked\"") />No
+                <br/>
+                <textarea class="aboutbox" name="Aboutbox" form="usrform">@Model.about </textarea>
+                <br/>
+                <input type="submit" name="submit" value="Submit changes" />
+            </div>
         }
 
-
-    </div>
-
-
-    <div class="col-md-8">
-        <form id="usrform">
-            Hide your profile from search?
-            <input type="radio" name="hide" value="y" @(!Model.hide ? "" : "checked=\"checked\"") />Yes
-            <input type="radio" name="hide" value="n" @(Model.hide ? "" : "checked=\"checked\"") />No
-            <textarea class="aboutbox" name="about" form="usrform">@Model.about </textarea>
-            </br>
-            <input type="submit">
-        </form>
-
-    </div>
 </div>
 
 <script type="text/javascript" src="@Url.Content("/Scripts/mprofile.js")"></script>
