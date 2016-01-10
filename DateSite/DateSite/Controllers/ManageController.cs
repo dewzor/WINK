@@ -26,6 +26,7 @@ namespace DateSite.Controllers
             return View();
         }
 
+        [HttpGet]
         public new ActionResult Profile()
         {
             ProfileModel profile = new ProfileModel();
@@ -58,5 +59,26 @@ namespace DateSite.Controllers
 
             return RedirectToAction("Profile");
         }
+
+        [HttpGet]
+        public ActionResult MySettings()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MySettings(MyAccountModel account)
+        {
+            var userid = Convert.ToInt32(Session["UserID"]);
+            var passmatch = _manageRepository.comparePassword(userid, account.OLDPASSWORD);
+            if (!ModelState.IsValid || !passmatch)
+            {
+                return View();
+            }
+            _manageRepository.UpdatePassword(userid, account.PASSWORD);
+
+            return RedirectToAction("Profile");
+        }
+        
     }
 }

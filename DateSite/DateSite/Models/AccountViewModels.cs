@@ -68,5 +68,21 @@ namespace DateSite.Models
         public string Password { get; set; }
     }
 
+    public class MyAccountModel
+    {
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "Enter a password")]
+        [MinLength(6, ErrorMessage = "Your password need to consist of atleast 6 characters")]
+        public string PASSWORD { get; set; }
+
+        [Display(Name = "Confirm Password")]
+        [Compare("PASSWORD", ErrorMessage = "Password mismatch")]
+        public string PASSWORDMATCH { get; set; }
+
+        [Display(Name = "Current Password")]
+        [Required(ErrorMessage = "Enter current password")]
+        [MinLength(6, ErrorMessage = "Your password need to consist of atleast 6 characters")]
+        public string OLDPASSWORD { get; set; }
+    }
 
 }

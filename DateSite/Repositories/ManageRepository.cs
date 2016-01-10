@@ -89,5 +89,31 @@ namespace Repositories
                 return user.Firstname;
             }
         }
+
+        public void UpdatePassword(int id, string newpass)
+        {
+            using (var context = new UserDBEntities())
+            {
+                var user = (from a in context.SECURITY
+                            where (a.PID == id)
+                            select a).SingleOrDefault();
+                user.PASSWORD = newpass;
+                context.SaveChanges();
+            }
+        }
+
+        public bool comparePassword(int id, string oldpass)
+        {
+            using (var context = new UserDBEntities())
+            {
+                var user = (from a in context.SECURITY
+                            where (a.PID == id)
+                            select a).SingleOrDefault();
+                if (user.PASSWORD == oldpass)
+                    return true;
+                else
+                    return false;
+            }
+        }
     }
 }

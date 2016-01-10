@@ -206,6 +206,7 @@
     <Content Include="Content\Profile.css" />
     <Content Include="Content\ProfileImages\rowan.jpg" />
     <Content Include="Content\registerStyle.css" />
+    <Content Include="Content\Settings.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -246,13 +247,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\BrowseProfiles\Browse.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Home\Profile.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\LoggedIn.cshtml" />
     <Content Include="Views\Shared\_LoggedInPartial.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\Profile.cshtml" />
     <Content Include="Views\Shared\_RandomProfilesPartial.cshtml" />
+    <Content Include="Views\Home\ViewProfile.cshtml" />
+    <Content Include="Views\Manage\MySettings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
