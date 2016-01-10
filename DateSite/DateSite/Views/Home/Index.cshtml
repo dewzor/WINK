@@ -6,6 +6,15 @@
 <head>
     <script src="~/scripts/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="@Url.Content("/Scripts/AutoScroll.js")"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            $("#registerBtn").click(function () {
+                $(location).attr('href', '../Account/Register')
+            });
+        });
+    </script>
+
 </head>
 
 <div id="wrapper">
@@ -69,7 +78,7 @@
 
     <div class="row regArea">
         <div class="col-md-12">
-            <input type="button" id="registerBtn" value="Register" href="Account/Register"/>
+            <input type="button" id="registerBtn" value="Register"/>
         </div>
     </div>
 

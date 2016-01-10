@@ -30,11 +30,15 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Browse Profiles", "Browse", "BrowseProfiles")</li>
-                    <li>@Html.ActionLink("Profile", "Profile", "Manage")</li>
+
+                    @if (Session["UserID"] != null)
+                    {
+                        <li>@Html.ActionLink("Edit Profile", "Profile", "Manage")</li>
+                    }
                 </ul>
 
-                @if(Session["UserID"] == null){
-                @Html.Partial("_LoginPartial")
+                @if(Session["UserID"] != null){
+                    @Html.Partial("_LoggedInPartial")
                 }
                 else
                 {

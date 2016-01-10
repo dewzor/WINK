@@ -43,19 +43,20 @@ h1{
 }
 
 .sides{
-
 }
 
 .profile{
     border: 1px solid black;
     height: 200px;
     text-align: center;
-    margin-top: 100px;
-    margin: 20px 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .profile p{
-    margin-top: 15px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 
 
@@ -70,4 +71,21 @@ input[type="button"]{
     border: none;
     font-weight: bold;
 
+}
+
+.profile-text{
+    width: 100%;
+    background-color: #2D2D2D;
+    color: #fff;
+    margin-bottom: 0;
+    height: auto;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    margin-left: -15px
+}
+
+.profiles{
+    width: 99.9%;
 }
