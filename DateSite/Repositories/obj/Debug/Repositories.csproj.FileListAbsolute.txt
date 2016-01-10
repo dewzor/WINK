@@ -55,7 +55,6 @@ F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.dll
 F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.dll
 F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.xml
 F:\Programmering\WINK\WINK\DateSite\Repositories\bin\Debug\EntityFramework.SqlServer.xml
-F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.csprojResolveAssemblyReference.cache
 F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.dll
 F:\Programmering\WINK\WINK\DateSite\Repositories\obj\Debug\Repositories.pdb
 C:\Users\kevin\Desktop\WINK\WINK\DateSite\Repositories\bin\Debug\UserDB.mdf
