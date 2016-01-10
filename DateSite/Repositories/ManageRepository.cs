@@ -79,5 +79,15 @@ namespace Repositories
                 context.SaveChanges();
             }
         }
+        public string getName(int id)
+        {
+            using (var context = new UserDBEntities())
+            {
+                var user = (from a in context.Profiles
+                            where (a.Id == id)
+                            select a).SingleOrDefault();
+                return user.Firstname;
+            }
+        }
     }
 }

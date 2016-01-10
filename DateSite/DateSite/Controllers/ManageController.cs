@@ -51,8 +51,6 @@ namespace DateSite.Controllers
                 profile.File.SaveAs(path);
                 _manageRepository.setPic(userid, fileName);
             }
-            var xa = profile.Aboutbox;
-            var xs = profile.Visibility;
             _manageRepository.setPAboutById(userid, profile.Aboutbox);
             _manageRepository.setHide(userid, profile.Visibility);
             
