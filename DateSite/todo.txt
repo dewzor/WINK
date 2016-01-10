@@ -9,3 +9,16 @@ Validering
 Två språk
 Göra inlägg på andras väggar
 Dölja profil
+
+
+
+
+
+Känner att jag bygger och skickar runt profiles på stenåldersvis.
+
+Vi bode göra en klass som håller i profiles som man kan skicka runt.
+Och en metod som bygger profile efter IDt som man skickar in och returnar den.
+
+Samma med wallposts, borde ha ett object som heter wallpost som innehåller posten, mottagare och sändare och datumtid.
+
+Lätta saker men har totalt hjärnsläpp och kan inte komma på hur/vart man skall bygga detta. wTF!!!!
