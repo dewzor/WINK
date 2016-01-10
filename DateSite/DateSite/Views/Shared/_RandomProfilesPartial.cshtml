@@ -1,10 +1,16 @@
-﻿@*@model DateSite.Models.BrowseModel
+﻿@model DateSite.Models.BrowseModel
 
-<div class="row">
-    @foreach(var i in Model.profiles)
-    {
-        <div>
-            @i.Firstname
-        </div>
-    }
-</div>*@
+<div class="row example-users">
+    <ul>
+        @foreach (var i in Model.randomProfiles)
+        {
+            <li>
+                <div class="profile-box" style="background-image: url(../../Content/ProfileImages/@i.Pic); background-size: 100% 100%;">
+                    <div class="name-tag">
+                        @i.Firstname
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

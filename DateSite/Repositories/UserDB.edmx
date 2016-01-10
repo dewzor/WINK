@@ -6,7 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="UserDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
-warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.FRIENDSWITH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.FRIENDSWITH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="FRIENDSWITH">
           <Key>
             <PropertyRef Name="UID" />
@@ -16,7 +16,7 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           <Property Name="FID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.HAVINGINTREST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.HAVINGINTREST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="HAVINGINTREST">
           <Key>
             <PropertyRef Name="PID" />
@@ -46,7 +46,7 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           <Property Name="Pic" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.REQUESTEDFRIEND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'C:\USERS\KEVIN\DESKTOP\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.REQUESTEDFRIEND' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="REQUESTEDFRIEND">
           <Key>
             <PropertyRef Name="UID" />
@@ -55,14 +55,9 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           <Property Name="UID" Type="int" Nullable="false" />
           <Property Name="FRID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\USERDB.MDF.dbo.SECURITY' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="SECURITY">
           <Key>
             <PropertyRef Name="PID" />
-            <PropertyRef Name="USERNAME" />
-            <PropertyRef Name="PASSWORD" />
-            <PropertyRef Name="VISIBILITY" />
           </Key>
           <Property Name="PID" Type="int" Nullable="false" />
           <Property Name="USERNAME" Type="nvarchar" MaxLength="30" Nullable="false" />
@@ -152,7 +147,7 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
         </Association>
         <Association Name="FK__SECURITY__PID__4222D4EF">
           <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
-          <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="*" />
+          <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Profiles">
               <PropertyRef Name="Id" />
@@ -189,6 +184,7 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
         <EntityContainer Name="UserDBModelStoreContainer">
           <EntitySet Name="Intrests" EntityType="Self.Intrests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profiles" EntityType="Self.Profiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SECURITY" EntityType="Self.SECURITY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WALLPOST" EntityType="Self.WALLPOST" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FRIENDSWITH" EntityType="Self.FRIENDSWITH" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -207,14 +203,6 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
     [REQUESTEDFRIEND].[UID] AS [UID], 
     [REQUESTEDFRIEND].[FRID] AS [FRID]
     FROM [dbo].[REQUESTEDFRIEND] AS [REQUESTEDFRIEND]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SECURITY" EntityType="Self.SECURITY" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SECURITY].[PID] AS [PID], 
-    [SECURITY].[USERNAME] AS [USERNAME], 
-    [SECURITY].[PASSWORD] AS [PASSWORD], 
-    [SECURITY].[VISIBILITY] AS [VISIBILITY]
-    FROM [dbo].[SECURITY] AS [SECURITY]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__FRIENDSWITH__FID__3C69FB99" Association="Self.FK__FRIENDSWITH__FID__3C69FB99">
             <End Role="Profiles" EntitySet="Profiles" />
@@ -257,13 +245,43 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="UserDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="UserDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Intrests" EntityType="UserDBModel.Intrests" />
+          <EntitySet Name="Profiles" EntityType="UserDBModel.Profiles" />
+          <EntitySet Name="SECURITY" EntityType="UserDBModel.SECURITY" />
+          <EntitySet Name="WALLPOST" EntityType="UserDBModel.WALLPOST" />
+          <AssociationSet Name="FK__SECURITY__PID__4222D4EF" Association="UserDBModel.FK__SECURITY__PID__4222D4EF">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="SECURITY" EntitySet="SECURITY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WALLPOST__FID__412EB0B6" Association="UserDBModel.FK__WALLPOST__FID__412EB0B6">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="WALLPOST" EntitySet="WALLPOST" />
+          </AssociationSet>
+          <AssociationSet Name="FK__WALLPOST__PID__403A8C7D" Association="UserDBModel.FK__WALLPOST__PID__403A8C7D">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="WALLPOST" EntitySet="WALLPOST" />
+          </AssociationSet>
+          <AssociationSet Name="FRIENDSWITH" Association="UserDBModel.FRIENDSWITH">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Profiles1" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="HAVINGINTREST" Association="UserDBModel.HAVINGINTREST">
+            <End Role="Intrests" EntitySet="Intrests" />
+            <End Role="Profiles" EntitySet="Profiles" />
+          </AssociationSet>
+          <AssociationSet Name="REQUESTEDFRIEND" Association="UserDBModel.REQUESTEDFRIEND">
+            <End Role="Profiles" EntitySet="Profiles" />
+            <End Role="Profiles1" EntitySet="Profiles" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Intrests">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Profiles" Relationship="Self.HAVINGINTREST" FromRole="Intrests" ToRole="Profiles" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Profiles" Relationship="UserDBModel.HAVINGINTREST" FromRole="Intrests" ToRole="Profiles" />
         </EntityType>
         <EntityType Name="Profiles">
           <Key>
@@ -276,15 +294,25 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           <Property Name="Gender" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
           <Property Name="Age" Type="Int32" />
           <Property Name="About" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SECURITY" Relationship="Self.FK__SECURITY__PID__4222D4EF" FromRole="Profiles" ToRole="SECURITY" />
-          <NavigationProperty Name="WALLPOST" Relationship="Self.FK__WALLPOST__FID__412EB0B6" FromRole="Profiles" ToRole="WALLPOST" />
-          <NavigationProperty Name="WALLPOST1" Relationship="Self.FK__WALLPOST__PID__403A8C7D" FromRole="Profiles" ToRole="WALLPOST" />
-          <NavigationProperty Name="Profiles1" Relationship="Self.FRIENDSWITH" FromRole="Profiles" ToRole="Profiles1" />
-          <NavigationProperty Name="Profiles2" Relationship="Self.FRIENDSWITH" FromRole="Profiles1" ToRole="Profiles" />
-          <NavigationProperty Name="Intrests" Relationship="Self.HAVINGINTREST" FromRole="Profiles" ToRole="Intrests" />
-          <NavigationProperty Name="Profiles11" Relationship="Self.REQUESTEDFRIEND" FromRole="Profiles" ToRole="Profiles1" />
-          <NavigationProperty Name="Profiles3" Relationship="Self.REQUESTEDFRIEND" FromRole="Profiles1" ToRole="Profiles" />
           <Property Name="Pic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SECURITY" Relationship="UserDBModel.FK__SECURITY__PID__4222D4EF" FromRole="Profiles" ToRole="SECURITY" />
+          <NavigationProperty Name="WALLPOST" Relationship="UserDBModel.FK__WALLPOST__FID__412EB0B6" FromRole="Profiles" ToRole="WALLPOST" />
+          <NavigationProperty Name="WALLPOST1" Relationship="UserDBModel.FK__WALLPOST__PID__403A8C7D" FromRole="Profiles" ToRole="WALLPOST" />
+          <NavigationProperty Name="Profiles1" Relationship="UserDBModel.FRIENDSWITH" FromRole="Profiles" ToRole="Profiles1" />
+          <NavigationProperty Name="Profiles2" Relationship="UserDBModel.FRIENDSWITH" FromRole="Profiles1" ToRole="Profiles" />
+          <NavigationProperty Name="Intrests" Relationship="UserDBModel.HAVINGINTREST" FromRole="Profiles" ToRole="Intrests" />
+          <NavigationProperty Name="Profiles11" Relationship="UserDBModel.REQUESTEDFRIEND" FromRole="Profiles" ToRole="Profiles1" />
+          <NavigationProperty Name="Profiles3" Relationship="UserDBModel.REQUESTEDFRIEND" FromRole="Profiles1" ToRole="Profiles" />
+        </EntityType>
+        <EntityType Name="SECURITY">
+          <Key>
+            <PropertyRef Name="PID" />
+          </Key>
+          <Property Name="PID" Type="Int32" Nullable="false" />
+          <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="VISIBILITY" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Profiles" Relationship="UserDBModel.FK__SECURITY__PID__4222D4EF" FromRole="SECURITY" ToRole="Profiles" />
         </EntityType>
         <EntityType Name="WALLPOST">
           <Key>
@@ -292,27 +320,14 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           </Key>
           <Property Name="POSTID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PID" Type="Int32" Nullable="false" />
-          <Property Name="POST" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="POST" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="FID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Profiles" Relationship="Self.FK__WALLPOST__FID__412EB0B6" FromRole="WALLPOST" ToRole="Profiles" />
-          <NavigationProperty Name="Profiles1" Relationship="Self.FK__WALLPOST__PID__403A8C7D" FromRole="WALLPOST" ToRole="Profiles" />
-        </EntityType>
-        <EntityType Name="SECURITY">
-          <Key>
-            <PropertyRef Name="PID" />
-            <PropertyRef Name="USERNAME" />
-            <PropertyRef Name="PASSWORD" />
-            <PropertyRef Name="VISIBILITY" />
-          </Key>
-          <Property Name="PID" Type="Int32" Nullable="false" />
-          <Property Name="USERNAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PASSWORD" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="VISIBILITY" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Profiles" Relationship="Self.FK__SECURITY__PID__4222D4EF" FromRole="SECURITY" ToRole="Profiles" />
+          <NavigationProperty Name="Profiles" Relationship="UserDBModel.FK__WALLPOST__FID__412EB0B6" FromRole="WALLPOST" ToRole="Profiles" />
+          <NavigationProperty Name="Profiles1" Relationship="UserDBModel.FK__WALLPOST__PID__403A8C7D" FromRole="WALLPOST" ToRole="Profiles" />
         </EntityType>
         <Association Name="FK__SECURITY__PID__4222D4EF">
-          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
-          <End Role="SECURITY" Type="Self.SECURITY" Multiplicity="*" />
+          <End Type="UserDBModel.Profiles" Role="Profiles" Multiplicity="1" />
+          <End Type="UserDBModel.SECURITY" Role="SECURITY" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Profiles">
               <PropertyRef Name="Id" />
@@ -323,8 +338,8 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__WALLPOST__FID__412EB0B6">
-          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
-          <End Role="WALLPOST" Type="Self.WALLPOST" Multiplicity="*" />
+          <End Type="UserDBModel.Profiles" Role="Profiles" Multiplicity="1" />
+          <End Type="UserDBModel.WALLPOST" Role="WALLPOST" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Profiles">
               <PropertyRef Name="Id" />
@@ -335,8 +350,8 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__WALLPOST__PID__403A8C7D">
-          <End Role="Profiles" Type="Self.Profiles" Multiplicity="1" />
-          <End Role="WALLPOST" Type="Self.WALLPOST" Multiplicity="*" />
+          <End Type="UserDBModel.Profiles" Role="Profiles" Multiplicity="1" />
+          <End Type="UserDBModel.WALLPOST" Role="WALLPOST" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Profiles">
               <PropertyRef Name="Id" />
@@ -347,47 +362,17 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           </ReferentialConstraint>
         </Association>
         <Association Name="FRIENDSWITH">
-          <End Role="Profiles" Type="Self.Profiles" Multiplicity="*" />
-          <End Role="Profiles1" Type="Self.Profiles" Multiplicity="*" />
+          <End Type="UserDBModel.Profiles" Role="Profiles" Multiplicity="*" />
+          <End Type="UserDBModel.Profiles" Role="Profiles1" Multiplicity="*" />
         </Association>
         <Association Name="HAVINGINTREST">
-          <End Role="Intrests" Type="Self.Intrests" Multiplicity="*" />
-          <End Role="Profiles" Type="Self.Profiles" Multiplicity="*" />
+          <End Type="UserDBModel.Intrests" Role="Intrests" Multiplicity="*" />
+          <End Type="UserDBModel.Profiles" Role="Profiles" Multiplicity="*" />
         </Association>
         <Association Name="REQUESTEDFRIEND">
-          <End Role="Profiles" Type="Self.Profiles" Multiplicity="*" />
-          <End Role="Profiles1" Type="Self.Profiles" Multiplicity="*" />
+          <End Type="UserDBModel.Profiles" Role="Profiles" Multiplicity="*" />
+          <End Type="UserDBModel.Profiles" Role="Profiles1" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="UserDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Intrests" EntityType="Self.Intrests" />
-          <EntitySet Name="Profiles" EntityType="Self.Profiles" />
-          <EntitySet Name="WALLPOST" EntityType="Self.WALLPOST" />
-          <EntitySet Name="SECURITY" EntityType="Self.SECURITY" />
-          <AssociationSet Name="FK__SECURITY__PID__4222D4EF" Association="Self.FK__SECURITY__PID__4222D4EF">
-            <End Role="Profiles" EntitySet="Profiles" />
-            <End Role="SECURITY" EntitySet="SECURITY" />
-          </AssociationSet>
-          <AssociationSet Name="FK__WALLPOST__FID__412EB0B6" Association="Self.FK__WALLPOST__FID__412EB0B6">
-            <End Role="Profiles" EntitySet="Profiles" />
-            <End Role="WALLPOST" EntitySet="WALLPOST" />
-          </AssociationSet>
-          <AssociationSet Name="FK__WALLPOST__PID__403A8C7D" Association="Self.FK__WALLPOST__PID__403A8C7D">
-            <End Role="Profiles" EntitySet="Profiles" />
-            <End Role="WALLPOST" EntitySet="WALLPOST" />
-          </AssociationSet>
-          <AssociationSet Name="FRIENDSWITH" Association="Self.FRIENDSWITH">
-            <End Role="Profiles" EntitySet="Profiles" />
-            <End Role="Profiles1" EntitySet="Profiles" />
-          </AssociationSet>
-          <AssociationSet Name="HAVINGINTREST" Association="Self.HAVINGINTREST">
-            <End Role="Intrests" EntitySet="Intrests" />
-            <End Role="Profiles" EntitySet="Profiles" />
-          </AssociationSet>
-          <AssociationSet Name="REQUESTEDFRIEND" Association="Self.REQUESTEDFRIEND">
-            <End Role="Profiles" EntitySet="Profiles" />
-            <End Role="Profiles1" EntitySet="Profiles" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -397,8 +382,8 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
           <EntitySetMapping Name="Intrests">
             <EntityTypeMapping TypeName="UserDBModel.Intrests">
               <MappingFragment StoreEntitySet="Intrests">
-                <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -406,58 +391,58 @@ warning 6002: The table/view 'F:\PROGRAMMERING\WINK\WINK\DATESITE\REPOSITORIES\U
             <EntityTypeMapping TypeName="UserDBModel.Profiles">
               <MappingFragment StoreEntitySet="Profiles">
                 <ScalarProperty Name="Pic" ColumnName="Pic" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
-                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="About" ColumnName="About" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="WALLPOST">
-            <EntityTypeMapping TypeName="UserDBModel.WALLPOST">
-              <MappingFragment StoreEntitySet="WALLPOST">
-                <ScalarProperty Name="POSTID" ColumnName="POSTID" />
-                <ScalarProperty Name="PID" ColumnName="PID" />
-                <ScalarProperty Name="POST" ColumnName="POST" />
-                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SECURITY">
             <EntityTypeMapping TypeName="UserDBModel.SECURITY">
               <MappingFragment StoreEntitySet="SECURITY">
-                <ScalarProperty Name="PID" ColumnName="PID" />
-                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
-                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
                 <ScalarProperty Name="VISIBILITY" ColumnName="VISIBILITY" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WALLPOST">
+            <EntityTypeMapping TypeName="UserDBModel.WALLPOST">
+              <MappingFragment StoreEntitySet="WALLPOST">
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="POST" ColumnName="POST" />
+                <ScalarProperty Name="PID" ColumnName="PID" />
+                <ScalarProperty Name="POSTID" ColumnName="POSTID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="FRIENDSWITH" TypeName="UserDBModel.FRIENDSWITH" StoreEntitySet="FRIENDSWITH">
+            <EndProperty Name="Profiles1">
+              <ScalarProperty Name="Id" ColumnName="UID" />
+            </EndProperty>
             <EndProperty Name="Profiles">
               <ScalarProperty Name="Id" ColumnName="FID" />
             </EndProperty>
-            <EndProperty Name="Profiles1">
-              <ScalarProperty Name="Id" ColumnName="UID" />
-            </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="HAVINGINTREST" TypeName="UserDBModel.HAVINGINTREST" StoreEntitySet="HAVINGINTREST">
-            <EndProperty Name="Intrests">
-              <ScalarProperty Name="ID" ColumnName="IID" />
-            </EndProperty>
             <EndProperty Name="Profiles">
               <ScalarProperty Name="Id" ColumnName="PID" />
             </EndProperty>
+            <EndProperty Name="Intrests">
+              <ScalarProperty Name="ID" ColumnName="IID" />
+            </EndProperty>
           </AssociationSetMapping>
           <AssociationSetMapping Name="REQUESTEDFRIEND" TypeName="UserDBModel.REQUESTEDFRIEND" StoreEntitySet="REQUESTEDFRIEND">
-            <EndProperty Name="Profiles">
-              <ScalarProperty Name="Id" ColumnName="FRID" />
-            </EndProperty>
             <EndProperty Name="Profiles1">
               <ScalarProperty Name="Id" ColumnName="UID" />
+            </EndProperty>
+            <EndProperty Name="Profiles">
+              <ScalarProperty Name="Id" ColumnName="FRID" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

@@ -62,8 +62,14 @@ namespace Repositories
                 }
 
                 List<Profiles> filteredList = new List<Profiles>();
-                Random rnd = new Random();
-                filteredList.OrderBy(x => rnd.Next()).Take(5);
+                Random random = new Random();
+
+                for(int i = 0; i < 5; i++)
+                {
+                    int ran = ids[random.Next(ids.Count)];
+                    filteredList.Add(getUserByID(ran));
+                }
+                
 
                 return filteredList;
             }
@@ -82,13 +88,13 @@ namespace Repositories
                     context.Database.Connection.Open();
                     context.Profiles.Add(profile);
                     context.SaveChanges();
-
-                    security.PID = Int32.Parse(context.Profiles.Last().ToString());
+                    security.PID = profile.Id;
                     context.SECURITY.Add(security);
+                    context.SaveChanges();
                     
                 }
             }
-            catch 
+            catch (Exception e)
             {
 
             }

@@ -1,9 +1,9 @@
 Databasen ska skapas KLAR
 Login (KLAR)
-Logout
+Logout (KLAR)
 Registera (NÄSTAN KLAR, SECURITYTABELLEN SKA DOCK UPPDATERAS MED)
-Redigera profil
-Browsefunktion (KLAR MEN BEHÖVS FILTRERING)
+Redigera profil (nästan klar)
+Browsefunktion (KLAR)
 Vänner (visa vänförfrågningar) (kontaklista)
 Validering
 Två språk

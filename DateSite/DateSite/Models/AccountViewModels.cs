@@ -43,19 +43,24 @@ namespace DateSite.Models
         [Display(Name = "About")]
         public string About { get; set; }
 
+        [Key]
+        [DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+
     }
 
     public class SecurityModel
     {
-        public int PID { get; set; }
-
         public string USERNAME { get; set; }
         public string PASSWORD { get; set; }
         public bool VISIBILITY { get; set; }
 
-        [ForeignKey("Id")]
-        public virtual ICollection<RegisterModel> register { get; set; }
+        public int PID { get; set; }
+
+        [ForeignKey("PID")]
+        public virtual RegisterModel Users { get; set; }
     }
+
 
     public class LoginModel
     {

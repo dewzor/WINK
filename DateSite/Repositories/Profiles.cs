@@ -17,7 +17,6 @@ namespace Repositories
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Profiles()
         {
-            this.SECURITY = new HashSet<SECURITY>();
             this.WALLPOST = new HashSet<WALLPOST>();
             this.WALLPOST1 = new HashSet<WALLPOST>();
             this.Profiles1 = new HashSet<Profiles>();
@@ -36,8 +35,7 @@ namespace Repositories
         public string About { get; set; }
         public string Pic { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SECURITY> SECURITY { get; set; }
+        public virtual SECURITY SECURITY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WALLPOST> WALLPOST { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
