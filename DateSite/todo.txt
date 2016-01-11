@@ -1,15 +1,24 @@
+TODO!!!:
+
+Vänner (visa vänförfrågningar) (kontaklista) (EJ KLARRRRRRRRR)
+Två språk (EJ KLAR)
+Göra inlägg på andras väggar (EJ KLAR)
+_MÅSTE_ ha APICONTROLLER
+Validera ALL inMATNING
+Undantagshantering med medelanden!!
+
 Databasen ska skapas KLAR
 Login (KLAR)
 Logout (KLAR)
+<<<<<<< HEAD
 Registera (NÄSTAN KLAR)
+=======
+Registera (KLAR)
+>>>>>>> origin/master
 Redigera profil (klar)
 Browsefunktion (KLAR)
-Vänner (visa vänförfrågningar) (kontaklista)
-Validering
-Två språk
-Göra inlägg på andras väggar
-Dölja profil
-
+Validering(SEMIKLAR)
+Dölja profil (KLAR)
 
 
 
