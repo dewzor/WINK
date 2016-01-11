@@ -31,7 +31,7 @@ namespace Repositories
         public string Lastname { get; set; }
         public string Email { get; set; }
         public string Gender { get; set; }
-        public Nullable<int> Age { get; set; }
+        public int Age { get; set; }
         public string About { get; set; }
         public string Pic { get; set; }
     

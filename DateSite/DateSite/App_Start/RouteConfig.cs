@@ -24,6 +24,12 @@ namespace DateSite
             url: "Account/Login",
             defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
         );
+
+            routes.MapRoute(
+                name: "User",
+                url: "{controller}/{action}/" + "id/" + "{id}",
+                defaults: new { controller = "Account", action = "Login", id = UrlParameter.Optional }
+                );
         }
     }
 }

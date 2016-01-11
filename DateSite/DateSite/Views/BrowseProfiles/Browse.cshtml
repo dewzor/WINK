@@ -128,12 +128,14 @@
         <div class="row profile-row">
             @foreach (var i in Model.profiles)
             {
-                <div class="col-md-2 profile profilebox" style="background-image: url(../../Content/ProfileImages/@i.Pic); background-size: 100% 100%;">
-                    <div class="profile-text">
-                        <p>@i.Firstname</p>
-                        <p>@i.Gender @i.Age</p>
+                <a href='@Url.Action("BrowseUser", "BrowseProfiles" , new { id = @i.Id })'>
+                    <div class="col-md-2 profile profilebox" style="background-image: url(../../Content/ProfileImages/@i.Pic); background-size: 100% 100%;">
+                        <div class="profile-text">
+                            <p>@i.Firstname</p>
+                            <p>@i.Gender @i.Age</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             }
         </div>
 
