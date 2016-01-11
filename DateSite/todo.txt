@@ -10,11 +10,8 @@ Undantagshantering med medelanden!!
 Databasen ska skapas KLAR
 Login (KLAR)
 Logout (KLAR)
-<<<<<<< HEAD
 Registera (NÄSTAN KLAR)
-=======
 Registera (KLAR)
->>>>>>> origin/master
 Redigera profil (klar)
 Browsefunktion (KLAR)
 Validering(SEMIKLAR)

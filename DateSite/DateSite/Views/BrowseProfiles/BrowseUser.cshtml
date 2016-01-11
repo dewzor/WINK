@@ -3,14 +3,40 @@
     ViewBag.Title = "BrowseUser";
     Layout = "~/Views/Shared/_Layout.cshtml";
     @Styles.Render("~/Content/BrowseUsersStyle.css");
+
+    bool session;
+    if (Session["UserID"] != null)
+    {
+        session = true;
+    }
+    else
+    {
+        session = false;
+    }
+
+
 }
+
+<head>
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            if (session == false) {
+                alert("false");
+            }
+            else{
+                alert("true");
+            }
+        });
+    </script>
+</head>
 
 
 <div class="content-wrapper">
     
     <div class="container">
-        <h2>BrowseUser</h2>
-        <div class="row">
+        <div class="row row-offset">
             <div class="col-md-12">
                 <div class="profilebox col-md-4" style="background-image: url(../../Content/ProfileImages/@Model.pic); background-size: 100% 100%;"></div>
                 <div class="col-md-8">
